@@ -2,6 +2,10 @@
 
 Create a command line program that calculates statistics from humidity sensor data.
 
+### Solution
+Currently, this solution reads a single file and returns the output
+Reading multiple files from a directory is in progress
+
 ### Background story
 
 The sensors are in a network, and they are divided into groups. Each sensor submits its data to its group leader.
