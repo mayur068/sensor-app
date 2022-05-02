@@ -10,7 +10,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 class DataParser (implicit val system: ActorSystem) {
 
-  def calcMin(data: Map[String, String]) : Unit = {
+  def calcStats(data: Map[String, String]) : Unit = {
     data.getOrElse("humidity","NaN") match {
       case "NaN" => DataParser.failureTotalMap += (data.getOrElse("sensor-id","NaN") -> (DataParser.failureTotalMap.getOrElse("sensor-id",0) + 1))
       case _ => {
@@ -31,7 +31,7 @@ class DataParser (implicit val system: ActorSystem) {
     source
       .via(CsvParsing.lineScanner(','))
       .via(CsvToMap.toMapAsStrings())
-      .runForeach(x => calcMin(x))
+      .runForeach(x => calcStats(x))
       .map{ _ =>
         DataParser.successTotalMap.foreach{ kv =>
           DataParser.avgMap += ( kv._1 -> (DataParser.sumMap.getOrElse(kv._1,0)/DataParser.successTotalMap.getOrElse(kv._1,1)))

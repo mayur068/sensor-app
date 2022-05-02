@@ -8,7 +8,6 @@ val AkkaVersion = "2.6.14"
 val AlpakkaCsvVersion = "3.0.4"
 
 libraryDependencies ++= Seq(
-  // 1. Basic dependencies for a clustered application
   "com.typesafe.akka" %% "akka-stream" % AkkaVersion,
   "com.lightbend.akka" %% "akka-stream-alpakka-csv" % AlpakkaCsvVersion
 )
