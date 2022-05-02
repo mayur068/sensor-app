@@ -3,8 +3,8 @@
 Create a command line program that calculates statistics from humidity sensor data.
 
 ### Solution
-Currently, this solution reads a single file and returns the output
-Reading multiple files from a directory is in progress
+- Currently, this solution reads a single file and returns the output.
+- Reading multiple files from a directory is in progress
 
 ### Background story
 
